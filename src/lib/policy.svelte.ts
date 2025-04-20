@@ -1,3 +1,5 @@
+import { goto } from '$app/navigation';
+
 export type PolicyRaw = { name: string; favor: number; against: number; vote: number };
 
 export class Policy {
@@ -35,6 +37,11 @@ export class Policy {
 				body: JSON.stringify({ name: this.name, vote: this._vote }),
 				headers: {
 					'content-type': 'application/json'
+				}
+			}).then((response) => {
+				if (response.status != 200) {
+					// panic; everything has gone horribly wrong
+					goto('/logout');
 				}
 			});
 		}
