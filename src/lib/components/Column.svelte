@@ -27,7 +27,7 @@
 							>
 								+
 							</button>
-							<p class="px-1">{policy.favor - policy.against}</p>
+							<p class="px-1" title={"+" + policy.favor + '/-' + policy.against}>{policy.favor - policy.against}</p>
 							<button
 								class={{
 									'cursor-pointer rounded-md border px-2': true,
