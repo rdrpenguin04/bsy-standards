@@ -1,3 +1,4 @@
+import { invalidateAll } from '$app/navigation';
 import { redirect } from '@sveltejs/kit';
 
 export function load({ cookies }) {

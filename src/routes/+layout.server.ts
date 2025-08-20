@@ -9,6 +9,7 @@ export const load: LayoutServerLoad = async ({ cookies, url }) => {
 	return {
 		displayPinu: isNaN(Number(cookies.get('pinu')))
 			? cookies.get('pinu')
-			: 'E-' + cookies.get('pinu')
+			: 'E-' + cookies.get('pinu'),
+		role: cookies.get('role')!
 	};
 };

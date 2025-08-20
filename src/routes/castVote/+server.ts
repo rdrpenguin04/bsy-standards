@@ -4,7 +4,7 @@ import { json } from '@sveltejs/kit';
 export async function POST({ request, cookies }): Promise<Response> {
 	let data: { name: string; vote: number } = await request.json();
 	if (!data.name || data.name == 'undefined') {
-		return new Response('no username', {
+		return new Response('no name for policy', {
 			status: 400,
 			headers: { 'content-type': 'application/json' }
 		});
