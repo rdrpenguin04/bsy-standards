@@ -1,5 +1,6 @@
 import { type PolicyRaw } from '$lib/policy.svelte';
 import { readFile, writeFile } from 'fs/promises';
+import { homedir } from 'os';
 
 export let policies: Map<string, Map<string, number>> = new Map([
 	[
@@ -34,7 +35,7 @@ export function policiesForPinu(pinu: string): PolicyRaw[] {
 async function loadPoliciesFromDisk(): Promise<void> {
 	try {
 		let input: { [key: string]: { [key: string]: number } } = JSON.parse(
-			await readFile('policies.json')
+			await readFile(homedir() + '/.local/share/bsy-policies.json')
 		);
 		let result = new Map();
 		for (let name in input) {
@@ -68,6 +69,6 @@ export function savePolicies() {
 				result[name][pinu] = vote;
 			}
 		}
-		writeFile('policies.json', JSON.stringify(result));
+		writeFile(homedir() + '/.local/share/bsy-policies.json', JSON.stringify(result));
 	}, 5000);
 }
