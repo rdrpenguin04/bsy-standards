@@ -15,7 +15,7 @@ loadConfigFromFile();
 
 async function loadConfigFromFile(): Promise<void> {
 	try {
-		config = JSON.parse(await readFile(await readFile(homedir() + '/.local/share/bsy-config.json')));
+		config = JSON.parse(await readFile(homedir() + '/.local/share/bsy-config.json'));
 	} catch (e) {
 		console.log('info: creating new config file upon next save');
 		saveConfig()
