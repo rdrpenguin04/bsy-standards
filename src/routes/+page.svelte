@@ -7,10 +7,10 @@
 	let policies: Policy[] = $state([]);
 	let unopposed_policies = $derived(policies.filter((x) => x.against == 0));
 	let generally_unopposed_policies = $derived(
-		policies.filter((x) => x.against != 0 && x.against < 5 && x.percent >= 0.9)
+		policies.filter((x) => x.against != 0 && x.against < 5 && x.percent >= 0.85)
 	);
 	let contested_policies = $derived(
-		policies.filter((x) => (x.against >= 5 || x.percent < 0.9) && x.percent > 0.3)
+		policies.filter((x) => (x.against >= 5 || x.percent < 0.85) && x.percent > 0.3)
 	);
 	let generally_opposed_policies = $derived(policies.filter((x) => x.percent <= 0.3));
 

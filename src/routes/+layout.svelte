@@ -10,7 +10,7 @@
 	onMount(() => {
 		setTimeout(async () => {
 			motd = (await (await fetch('/motd')).json()).motd;
-		}, 1000);
+		}, 500);
 	});
 </script>
 
