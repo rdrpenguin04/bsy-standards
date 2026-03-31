@@ -8,7 +8,7 @@ export let config: ConfigRaw = {
 	recsec: 1046,
 	allowed: [1026, 1028, 1037, 1046, 1048, 1050, 1051, 1052, 1053],
 	secret: "oratrice mecanique d'analyse cardinale",
-	motd: "This is a test"
+	motd: 'This is a test'
 };
 
 loadConfigFromFile();
@@ -18,7 +18,7 @@ async function loadConfigFromFile(): Promise<void> {
 		config = JSON.parse(await readFile(homedir() + '/.local/share/bsy-config.json'));
 	} catch (e) {
 		console.log('info: creating new config file upon next save');
-		saveConfig()
+		saveConfig();
 	}
 }
 

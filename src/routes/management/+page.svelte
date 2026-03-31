@@ -96,10 +96,13 @@
 							<button
 								class="cursor-pointer rounded-md border px-2 text-red-700"
 								onclick={() => {
-									if (confirm(`Really delete the votes of "${user.name}"?`)) {
+									let reason;
+									if (
+										(reason = prompt(`Really delete the votes of "${user.name}"? Provide reason:`))
+									) {
 										fetch('/deleteUser', {
 											method: 'POST',
-											body: JSON.stringify({ name: user.name, secret }),
+											body: JSON.stringify({ name: user.name, reason, secret }),
 											headers: {
 												'content-type': 'application/json'
 											}
@@ -135,10 +138,11 @@
 							<button
 								class="cursor-pointer rounded-md border px-2 text-red-700"
 								onclick={() => {
-									if (confirm(`Really delete "${policy.name}"?`)) {
+									let reason;
+									if ((reason = prompt(`Really delete "${policy.name}"? Provide reason:`))) {
 										fetch('/deletePolicy', {
 											method: 'POST',
-											body: JSON.stringify({ name: policy.name, secret }),
+											body: JSON.stringify({ name: policy.name, reason, secret }),
 											headers: {
 												'content-type': 'application/json'
 											}

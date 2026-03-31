@@ -57,7 +57,7 @@
 						: nameData;
 
 		let formElement = document.getElementById('submission-form')! as HTMLFormElement;
-        (formElement.firstElementChild as HTMLInputElement).value = pinu;
+		(formElement.firstElementChild as HTMLInputElement).value = pinu;
 
 		formElement.submit();
 	}
